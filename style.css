@@ -1,0 +1,61 @@
+*, *::before, *::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+body{
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+.card{
+    width: 400px;
+
+}
+.card:hover .card_content{
+    transform: rotateY(.5turn);/* half of 360° of y-axis*/
+}
+.card_content{
+    position: relative;
+    text-align: center;
+    padding: 5rem;
+    transition: transform 3s;/* want just the text to rotate but not the card we used This */
+    background: rgb(216, 137, 150);
+   /* transform-style: flat; children are flat on the parents */
+   transform-style: preserve-3d;
+}
+.card_front,
+ .card_back{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    backface-visibility: hidden;/* hide things behind parent card*/
+}
+.card_front{
+    background: red;
+    transform: rotateY(.15turn);/* here we can change values E.G .25TURN or .15turn the children 
+    are on the parents .e want them to be undependent of the parents*/
+    
+
+}
+.card_titel{
+    transform: translateZ(5rem);/* you can change the axis y or Z */
+    font-size: 3rem;
+}
+.card_subtitle{
+    transform: translateZ(4rem);
+}
+.card_front{
+    background: rgb(37, 191, 23);
+}
+.card_back{
+    transform: rotateZ(.5turn);
+    background: rgb(208, 163, 15);/* you can change the bg color */
+}
+.card_body{
+    transform: translateZ(3rem);
+}
